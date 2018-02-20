@@ -1,4 +1,4 @@
-
+//TODO: add event triggers for onUserListChanged
 
 
 function _removeUser(UserModel) {
