@@ -3,7 +3,6 @@ var ChatShellController = {
 }
 ChatShellController.Show = function _chatShellShow(parent){
     var self = this;
-
     this.view.initialize(parent);
     this.view.cElement.innerHTML = '';
     this.view.display();

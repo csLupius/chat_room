@@ -8,8 +8,13 @@ UserLoginController.Show = function _show(parent) {
     var self = this;
     this.view.initialize(parent);
     this.view.display();
+    this.view.cElement.classList.add('abs-center');
     this.view.$button = document.getElementById('userLoginButton');
+    this.view.$button.classList.add('send');
+    this.view.$button.classList.add('sweetborders');
     this.view.$input = document.getElementById('userLoginInput');
+    this.view.$input.classList.add('half-textbox');
+    this.view.$input.classList.add('sweetborders');
     this.view.$serverMessage = document.getElementById('loginServerMessage');
     function _loginHandler(result, data) {
 
@@ -25,6 +30,14 @@ UserLoginController.Show = function _show(parent) {
     this.view.$button.onclick = function _onLoginButonClicked (e) {
         if (self.view.$input.value && self.view.$input.value.length > 0) {
             ConnectionController.LoginWithUserName(self.view.$input.value, _loginHandler)
+        }
+    }
+    //TODO:fix onKeypress event
+    this.view.$button.onkeypress = function _onLoginInputKeyPressed(e){
+        debugger;
+        if(e.keyCode == 13)
+        {
+            alert("Enter Pressed");
         }
     }
 };

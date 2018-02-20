@@ -1,9 +1,47 @@
+#InputContainer {
+    position: absolute;
+    left:0px;
+    right: 0px;
+    bottom:0px;
+}
+#LoginContainer {
+    background: grey;
+    padding-top:40px;
+    padding-bottom:40px;
+}
+#LoginContainer a{
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+}
 .half-container,
 .container  {
     display:block;
-    background-color: brown; 
     width: 1000px;
     margin:auto;
     text-align: center;
 }
 .half-container{ width: 500px;}
+.half-textbox,
+.textbox {
+    width: 750px;
+    padding-left: 16px;
+    margin-bottom:15px;
+}
+.half-textbox{width: 250px;}
+.send {
+    width:100px;
+    margin-bottom:15px;
+    background-color:rgba(119, 206, 119, 0.72);
+}
+.sweetborders{
+    border-radius: 16px;
+    border-style: solid;
+    padding: 8px;
+}
+.abs-center
+{
+    margin-top: 25%;
+}
