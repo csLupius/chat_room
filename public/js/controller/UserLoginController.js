@@ -8,6 +8,7 @@ UserLoginController.Show = function _show(parent) {
     var self = this;
     this.view.initialize(parent);
     this.view.display();
+    this.view.cElement.classList.add('sweetborders');
     this.view.cElement.classList.add('abs-center');
     this.view.$button = document.getElementById('userLoginButton');
     this.view.$button.classList.add('send');
