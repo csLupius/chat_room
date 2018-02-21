@@ -16,13 +16,13 @@ UserLoginController.Show = function _show(parent) {
     this.view.$input.classList.add('half-textbox');
     this.view.$input.classList.add('sweetborders');
     this.view.$serverMessage = document.getElementById('loginServerMessage');
+    this.view.$input.focus();
     function _loginHandler(result, data) {
 
         if (result) {
             self.Remove();
             ChatShellController.Show(document.body);
             ChatLogController.ShowAllActiveMessages(data.messages);
-
         } else {
             self.view.$serverMessage.innerText = data;
         }
@@ -32,16 +32,14 @@ UserLoginController.Show = function _show(parent) {
             ConnectionController.LoginWithUserName(self.view.$input.value, _loginHandler)
         }
     }
-    //TODO:fix onKeypress event
-    this.view.$button.onkeypress = function _onLoginInputKeyPressed(e){
-        debugger;
-        if(e.keyCode == 13)
-        {
-            alert("Enter Pressed");
+    //DONE: fix onKeypress event
+    this.view.$input.onkeyup = function _onLoginInputKeyPressed(e){
+        if(self.view.$input.value && self.view.$input.value.length > 0 ){
+            if(e.key === "Enter"){
+                ConnectionController.LoginWithUserName(self.view.$input.value,_loginHandler);
+            }
         }
     }
 };
-
-    ///INPUT'a onEnter koy
 
 
