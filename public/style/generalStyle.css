@@ -1,3 +1,6 @@
+body {
+    background-color: lightgray;
+}
 #InputContainer {
     position: absolute;
     left:0px;
@@ -16,6 +19,25 @@
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bolder;
+}
+.strangerChatLog,
+.userChatLog{
+    margin:auto;
+    display: inline-table;
+}
+.strangerChatLog{text-align: left;}
+.userChatLog{text-align: right;}
+.strangerChatLog [data="user"],
+.userChatLog [data="user"]{
+    width: 100px;
+    display: inline-table;
+    background: rgb(20, 42, 170);
+}
+.strangerChatLog [data="message"],
+.userChatLog [data="message"]{
+    width: 700px;
+    display:inline-table;
+    background: burlywood;
 }
 .half-container,
 .container  {

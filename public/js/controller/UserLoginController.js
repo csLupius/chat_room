@@ -22,7 +22,7 @@ UserLoginController.Show = function _show(parent) {
 
         if (result) {
             self.Remove();
-            ChatShellController.Show(document.body);
+            ChatShellController.Show(self.view.parent);
             ChatLogController.ShowAllActiveMessages(data.messages);
         } else {
             self.view.$serverMessage.innerText = data;
@@ -41,6 +41,7 @@ UserLoginController.Show = function _show(parent) {
             }
         }
     }
+    
 };
 
 

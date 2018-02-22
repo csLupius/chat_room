@@ -23,6 +23,7 @@ ChatLogController.ShowAllActiveMessages = function _showmessages(messages) {
         //console.log(messages[i]);
         //console.log(messages[i].sender+ " : " + messages[i].message);
         //console.log(ChatController);
+        
         ChatController.AddChatLog(this.view.cElement, messages[i]);
     }
 }

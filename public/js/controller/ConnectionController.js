@@ -26,8 +26,9 @@ ConnectionController.LoginWithUserName = function _loginwithusername(username, c
     }
     function _onConnectionSuccess(data) {
         //console.log("0_onConnectionSuccess " + data);
-        cb(true, data);
         self.connectionUser = data.name;
+        cb(true, data);
+        
     }
 }
 
