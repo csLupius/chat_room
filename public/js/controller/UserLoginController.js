@@ -6,6 +6,10 @@ UserLoginController.Remove = function _remove() {
 }
 UserLoginController.Show = function _show(parent) {
     var self = this;
+    if (!parent.style.height || !parent.style.maxHeight) {
+        parent.style.height = (window.innerHeight) + "px";
+        parent.style.maxHeight = (window.innerHeight - 20) + "px";
+    }
     this.view.initialize(parent);
     this.view.display();
     this.view.cElement.classList.add('sweetborders');
@@ -22,26 +26,27 @@ UserLoginController.Show = function _show(parent) {
 
         if (result) {
             self.Remove();
-            ChatShellController.Show(self.view.parent);
+
+            ChatShellController.Show(self.view.parent, );
             ChatLogController.ShowAllActiveMessages(data.messages);
         } else {
             self.view.$serverMessage.innerText = data;
         }
     }
-    this.view.$button.onclick = function _onLoginButonClicked (e) {
+    this.view.$button.onclick = function _onLoginButonClicked(e) {
         if (self.view.$input.value && self.view.$input.value.length > 0) {
             ConnectionController.LoginWithUserName(self.view.$input.value, _loginHandler)
         }
     }
     //DONE: fix onKeypress event
-    this.view.$input.onkeyup = function _onLoginInputKeyPressed(e){
-        if(self.view.$input.value && self.view.$input.value.length > 0 ){
-            if(e.key === "Enter"){
-                ConnectionController.LoginWithUserName(self.view.$input.value,_loginHandler);
+    this.view.$input.onkeyup = function _onLoginInputKeyPressed(e) {
+        if (self.view.$input.value && self.view.$input.value.length > 0) {
+            if (e.key === "Enter") {
+                ConnectionController.LoginWithUserName(self.view.$input.value, _loginHandler);
             }
         }
     }
-    
+
 };
 
 

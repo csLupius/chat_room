@@ -7,6 +7,7 @@ ChatLogController.Show = function _show(parent) {
     var self = this;
     this.view.initialize(parent);
     this.view.display(true);
+    
 }
 ChatLogController.ShowAllActiveMessages = function _showmessages(messages) {
     /**IDEA:1
@@ -26,4 +27,5 @@ ChatLogController.ShowAllActiveMessages = function _showmessages(messages) {
         
         ChatController.AddChatLog(this.view.cElement, messages[i]);
     }
+        this.view.cElement.scrollTop = this.view.cElement.scrollHeight;
 }

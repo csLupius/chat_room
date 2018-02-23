@@ -7,7 +7,17 @@ body {
     right: 0px;
     bottom:0px;
 }
+#ChatInputContainer{
+    padding:5px;
+}
 #LogWindow
+{
+    overflow-y: scroll;
+    
+}
+::-webkit-scrollbar {
+    display: none;
+}
 #InputContainer {
     
 }
@@ -71,5 +81,8 @@ body {
 }
 .abs-center
 {
-    margin-top: 10%;
+    position: absolute;
+    left:0;
+    right: 0;
+    top:10%;
 }

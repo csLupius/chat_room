@@ -3,7 +3,6 @@ var ChatInputViewController = {
 }
 ChatInputViewController.Show = function _show(parent) {
     var self = this;
-    this.view.id = "InputContainer";
     this.view.initialize(parent);
     this.view.display();
     //TODO: do childNodes search instead of DOM search 

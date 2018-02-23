@@ -4,8 +4,8 @@ CoreView.name = '';
 CoreView.parent = undefined;
 CoreView.class = '';
 CoreView.id = '';
-CoreView.display = function _display(boolprepend = false) {
-    if (!boolprepend)
+CoreView.display = function _display(prepend = false) {
+    if (!prepend)
         this.parent.append(this.cElement);
     else
         this.parent.prepend(this.cElement);
