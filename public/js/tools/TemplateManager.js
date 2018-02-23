@@ -1,5 +1,10 @@
 var TemplateManager = {
+    templates : [],
     load : function(templateName){
+        if(this.templates[templateName])
+        {
+            return this.templates[templateName];
+        }
         var stringToReturn = '';
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange =function()
@@ -15,7 +20,8 @@ var TemplateManager = {
 
         if(stringToReturn.length > 0)
         {
-            return stringToReturn;
+            this.templates[templateName] = stringToReturn;
+            return this.templates[templateName];
         }else
             {
                 return templateName + ".html Template cannot be loaded";
