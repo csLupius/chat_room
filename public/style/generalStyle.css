@@ -35,6 +35,7 @@ body {
 .userChatLog [data="user"]{
     width: 100px;
     display: inline-table;
+    text-align: center;
     background: rgb(20, 42, 170);
 }
 .strangerChatLog [data="message"],
