@@ -3,7 +3,6 @@ ChatController.AddChatLog = function chatcontroller_display(parent, data) {
     // console.log("chatcontroller_display1");
     
     var log;
-    debugger;
     if (ConnectionController.connectionUser === data.sender) {
         log = Object.create(UserChatLogView);
     } else {
