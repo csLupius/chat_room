@@ -24,7 +24,8 @@ function _connectionHandler(socket) {
         if (!UserListController.AddUser(new User(username, socket))) {
             socket.emit('connectionFailed', 'Connection Failed; Username is already in use. Or you already have a user logged in in this computer');
         } else {
-            socket.emit('connectionSuccess', {name:username, messages:ChatLog.Log});
+            socket.emit('connectionSuccess', {User:{name : UserListHelper.getUserFromSocket(socket).username, UUID:UserListHelper.getUserFromSocket(socket).UUID} 
+                                                , messages:ChatLog.Log});
         }
     }
     //TODO: check if message is safe
@@ -50,7 +51,6 @@ function _connectionHandler(socket) {
 }
 var ConnectionController = (function () {
     UserListController.onUsersChanged(function userListChangedHandler(userlist) {
-
         SocketsHelper.emitToAll('userListChanged',
             userlist,
             UserListHelper.getAllSockets());

@@ -9,10 +9,10 @@ var TOOLS = {
             });
         return result;
     },
-    getAllUsernames: function () {
+    getAllUserInfo: function () {
         var res = [];
         for (var i = 0; i < require('../models/UserList').Users.length; i++) {
-            res.push(require('../models/UserList').Users[i].username);
+            res.push({ name : require('../models/UserList').Users[i].username, UUID : require('../models/UserList').Users[i].UUID});
         }
         return res;
     },

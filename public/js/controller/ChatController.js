@@ -1,9 +1,10 @@
 var ChatController = {}
-ChatController.AddChatLog = function chatcontroller_display(parent, data) {
+ChatController.DisplayChatLog = function chatcontroller_display(parent, data) {
     // console.log("chatcontroller_display1");
     
     var log;
-    if (ConnectionController.connectionUser === data.sender) {
+    if (ConnectionController.connectionUser.UUID == data.sender.UUID 
+        && ConnectionController.connectionUser.name == data.sender.name) {
         log = Object.create(UserChatLogView);
     } else {
         log = Object.create(StrangerChatLogView);
@@ -12,7 +13,7 @@ ChatController.AddChatLog = function chatcontroller_display(parent, data) {
     log.initialize(parent);
     //console.log("chatcontroller_display3");
     
-    log.SenderUsername(data.sender);
+    log.SenderUsername(data.sender.name);
     //console.log("chatcontroller_display4");
     
     log.SenderMessage(data.message);

@@ -4,15 +4,16 @@ var UserListTools = require('../helpers/UserListTools');
 var EventHandler = require('../helpers/EventHandler');
 
 var _onUsersChanged = Object.create(EventHandler);
-function _addNewUser(UserModel) {
+function _addNewUser(nUser) {
     //console.log("_addNewUser1" + UserModel.username);
-    if (UserModel instanceof User) {
+    if (nUser instanceof User) {
         //  console.log("_addNewUser2");
-        if (UserListTools.checkUsername(UserModel.username)) {
+        if (UserListTools.checkUsername(nUser)) {
             //    console.log("_addNewUser3");
-            UserList.Add(UserModel);
+            nUser.UUID = require('node-uuid').v1();
+            UserList.Add(nUser);
             //  console.log("_addNewUser4");
-            _onUsersChanged.trigger(UserListTools.getAllUsernames());
+            _onUsersChanged.trigger(UserListTools.getAllUserInfo());
             // console.log("_addNewUser5 " +  UserListTools.getAllUsernames());
             return true;
         } else {
@@ -20,15 +21,13 @@ function _addNewUser(UserModel) {
         }
     }
 }
-function _removeUser(UserModel) {
-    if (UserModel instanceof User)
+function _removeUser(nUser) {
+    if (nUser instanceof User)
         //console.log('ULC_removeUser1 ' + UserModel.username );
-    if (!UserListTools.checkUsername(UserModel.username)) {
+    if (!UserListTools.checkUsername(nUser.username)) {
         //console.log('ULC_removeUser2')
-        UserList.Remove(UserModel);
-        //console.log('ULC_removeUser3' +  UserListTools.getAllUsernames())
-        _onUsersChanged.trigger(UserListTools.getAllUsernames());
-        //console.log('ULC_removeUser4' + UserListTools.getAllUsernames());
+        UserList.Remove(nUser);
+        _onUsersChanged.trigger(UserListTools.getAllUserInfo());
         return true;
     } else {
         return false;
