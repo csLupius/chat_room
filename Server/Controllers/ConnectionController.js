@@ -51,6 +51,12 @@ function _connectionHandler(socket) {
     socket.on('disconnect', disconnectionHandler);
     ////////////-------------------------///////////////////////////  
 }
+
+function _disconnectionHandler()
+{
+    console.log("EXİT TEST");
+}
+
 var ConnectionController = (function () {
     UserListController.onUsersChanged(function userListChangedHandler(userlist) {
         SocketsHelper.emitToAll('userListChanged',
@@ -67,7 +73,8 @@ var ConnectionController = (function () {
     });
 
     return {
-        Connect: _connectionHandler
+        Connect: _connectionHandler,
+        Close : _disconnectionHandler
     }
 }());
 module.exports = ConnectionController;

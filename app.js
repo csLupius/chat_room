@@ -20,3 +20,7 @@ http.listen(port,
         console.log('started at : ' + port)
     }
 );
+
+process.on("exit", function _beforeExitListener(){
+    ConnectionController.Close();
+});

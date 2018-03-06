@@ -2,7 +2,7 @@ var User = require('../models/User');
 var UserList = require('../models/UserList');
 var UserListTools = require('../helpers/UserListTools');
 var EventHandler = require('../helpers/EventHandler');
-
+var Firebase = require('./FireBaseController');
 var _onUsersChanged = Object.create(EventHandler);
 function _addNewUser(nUser) {
     //console.log("_addNewUser1" + UserModel.username);
@@ -13,6 +13,8 @@ function _addNewUser(nUser) {
             nUser.UUID = require('node-uuid').v1();
             UserList.Add(nUser);
             //  console.log("_addNewUser4");
+            
+            Firebase.AddUser(nUser.UUID, nUser.username);
             _onUsersChanged.trigger(UserListTools.getAllUserInfo());
             // console.log("_addNewUser5 " +  UserListTools.getAllUsernames());
             return true;

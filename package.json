@@ -1,9 +1,10 @@
 {
   "name": "chat_app",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "main": "app.js",
   "dependencies": {
     "express": "^4.16.2",
+    "firebase-admin": "^5.9.1",
     "module": "^1.2.5",
     "node-uuid": "^1.4.8",
     "socket.io": "^2.0.4",
