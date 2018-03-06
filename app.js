@@ -20,7 +20,13 @@ http.listen(port,
         console.log('started at : ' + port)
     }
 );
+function _terminate (){
+    console.log('Server Terminated');
+    process.exit(0);
+})
 
-process.on("exit", function _beforeExitListener(){
-    ConnectionController.Close();
+process.on("exit", function _beforeExitListener(code){
+    console.log("exit " + code) ;
 });
+process.on("SIGINT", _terminate);
+process.on("SIGTERM", _terminate);
