@@ -8,7 +8,7 @@ function _addNewUser(nUser) {
     //console.log("_addNewUser1" + UserModel.username);
     if (nUser instanceof User) {
         //  console.log("_addNewUser2");
-        if (UserListTools.checkUsername(nUser)) {
+        if (!UserListTools.checkUsernameExists(nUser)) {
             //    console.log("_addNewUser3");
             nUser.UUID = require('node-uuid').v1();
             UserList.Add(nUser);
@@ -24,7 +24,7 @@ function _addNewUser(nUser) {
 function _removeUser(nUser) {
     if (nUser instanceof User)
         //console.log('ULC_removeUser1 ' + UserModel.username );
-    if (!UserListTools.checkUsername(nUser.username)) {
+    if (UserListTools.checkUsernameExists(nUser.username)) {
         //console.log('ULC_removeUser2')
         UserList.Remove(nUser);
         _onUsersChanged.trigger(UserListTools.getAllUserInfo());

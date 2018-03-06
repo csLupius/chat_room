@@ -1,10 +1,10 @@
 var TOOLS = {
-    checkUsername: function (name) {
-        var result = true;
+    checkUsernameExists: function (name) {
+        var result = false;
         require('../models/UserList').Users.map(
             (user) => {
                 if (user.username === name) {
-                    result = false;
+                    result = true;
                 }
             });
         return result;

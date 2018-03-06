@@ -31,9 +31,11 @@ function _connectionHandler(socket) {
     //TODO: check if message is safe
     function msgHandler(data) {
         /** Try to add chat log to log list */
-        if (!ChatLog.Add(new Chat(data.sender, data.message))) {
-            socket.emit('msgSendFailed', '0X0001 Message send failed');
-        } else socket.emit('msgSendSuccess');
+        if(UserListHelper.checkUsernameExists(data.sender.name)){
+            if (!ChatLog.Add(new Chat(data.sender, data.message))) {
+                socket.emit('msgSendFailed', '0X0001 Message send failed');
+            } else socket.emit('msgSendSuccess');
+        }else socket.emit('msgSendFailed', '0X0002 No Longer Connected');
     }
 
     function disconnectionHandler() {
