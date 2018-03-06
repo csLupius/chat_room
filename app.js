@@ -20,9 +20,10 @@ http.listen(port,
         console.log('started at : ' + port)
     }
 );
-function _terminate (){
+function _terminate ()
+{
     console.log('Server Terminated');
-})
+}
 
 process.on("exit", function _beforeExitListener(code){
     console.log("exit " + code) ;
