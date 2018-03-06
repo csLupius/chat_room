@@ -8,7 +8,7 @@ function _addChat(chat) {
         _onChatlogChanged.trigger(_chatlog);
         setTimeout(function _deleteChat(){
             _removeChat(chat);
-        }, 1000 * 60 * 30); //30 DK ? 
+        }, 1000 * 60 * 30); //30 DK ? // ((1000 = 1 sn) * 60) = 1 dk) * 30 = 30dk
         return true;
     }else return false;
 }
