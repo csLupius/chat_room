@@ -24,5 +24,7 @@ ChatShellController.Show = function _chatShellShow(parent) {
             ChatLogController.view.cElement.style.maxHeight = (parseInt(parent.style.height, 10) - (ChatInputViewController.view.cElement.offsetHeight)) + "px";
         }
     }
-
+}
+ChatShellController.Remove = function _chatShellRemove(){
+    this.view.remove();
 }

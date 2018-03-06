@@ -18,6 +18,12 @@ ChatInputViewController.Show = function _show(parent) {
         if(!boolResponse)
         {
             alert(message);
+            if(message.concat('0X0002').length > 1)
+            {
+                var p = ChatShellController.view.parent;
+                ChatShellController.Remove();
+                UserLoginController.Show(p);
+            }
         }};
 
     function _sendMessageFunction(text){
