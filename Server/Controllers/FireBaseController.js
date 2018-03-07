@@ -13,7 +13,7 @@ var FIREBASE = {}
 FIREBASE.AddUser = function writeUserData(userId, name) {
     var id = userId.slice(userId.length - 12, userId.length) + "_" + name;
     console.log(id);
-    FIREBASE.DB.ref('users/' + id).set({
+    DB.ref('users/' + id).set({
         username: name,
         active: true
     });
