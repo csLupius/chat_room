@@ -1,13 +1,14 @@
 var firebase = require('firebase-admin');
-
+var DB = firebase.database();
 //var serviceAccount = require('../auth/adminsdk.json');
+console.log(process.env.FIREBASE_CONFIG);
 var serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG);
 var config = {
     credential : firebase.credential.cert(serviceAccount),
     databaseURL: "https://mychatapp-701bb.firebaseio.com"
 };
 firebase.initializeApp(config);
-var DB = firebase.database();
+
 //firebase.auth();
 var FIREBASE = {}
 FIREBASE.AddUser = function writeUserData(userId, name) {
