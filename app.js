@@ -1,3 +1,4 @@
+console.log(process.env.FIREBASE_CONFIG);
 var express = require("express");
 var app = express();
 var http = require("http").Server(app);
