@@ -22,7 +22,7 @@ http.listen(port,
 );
 function _terminate ()
 {
-    console.log('Server Terminated');
+    console.log('Server Termination Handled');
 }
 
 process.on("exit", function _beforeExitListener(code){
